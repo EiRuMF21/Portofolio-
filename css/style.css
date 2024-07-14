@@ -149,11 +149,7 @@ body {
 }
 
 /* Mobile Phone */
-@media (max-width: 450px) {
-  html {
-    font-size: 55%;
-  }
-}
+
 
 /* CSS untuk animasi teks masuk */
 @keyframes textFadeIn {
@@ -366,4 +362,11 @@ body {
 .sosmed {
   text-align: left;
   margin: 0 1rem;
+}
+
+
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
 }
