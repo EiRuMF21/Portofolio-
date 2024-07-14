@@ -102,7 +102,13 @@ body {
   html {
     font-size: 62.5%;
   }
+}
 
+@media (max-width: 320px) {
+  html {
+    font-size: 60%;
+  } 
+}
   .profileImages {
     width: 40%;
   }
@@ -197,6 +203,7 @@ body {
   display: flex;
   align-items: center;
   opacity: 0;
+  
 }
 
 @keyframes fadeInProfile {
@@ -267,12 +274,12 @@ body {
 }
 
 .biodata {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-top: 0;
 }
 
 .biodataText {
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin-top: 2rem;
   line-height: 1.8;
 }
@@ -362,11 +369,4 @@ body {
 .sosmed {
   text-align: left;
   margin: 0 1rem;
-}
-
-
-@media (max-width: 450px) {
-  html {
-    font-size: 55%;
-  }
 }
