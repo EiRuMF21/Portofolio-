@@ -84,16 +84,12 @@ body {
   display: none;
 }
 
-/* INDEX */
-/* Halaman Awal */
-
-/* Media Queries */
-
 /* Laptop */
-@media screen and (max-width: 1300px) {
+@media screen and (min-width: 1200px) {
   .navbar .navbar-extra {
     display: none;
   }
+  
 
   #main-menu {
     display: inline-block;
@@ -139,8 +135,63 @@ body {
     margin-top: 0;
   }
 }
+/* mobile */
+@media screen and (max-width: 576px) {
+  .navbar .navbar-extra {
+    display: inline-block;
+  }
+  
 
-/* Mobile Phone */
+  #main-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgb(118, 118, 118);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.3);
+  }
+
+  .profileImages {
+    width: 20%;
+  }
+
+  .profileText {
+    font-size: 10%;
+    margin-left: 2rem;
+    margin-top: 0;
+  }
+
+  .pendidikanText {
+  font-size: 0.5em;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+}
 
 /* CSS untuk animasi teks masuk */
 @keyframes textFadeIn {
@@ -355,9 +406,4 @@ body {
   margin: 0 1rem;
 }
 
-@media screen and (max-width: 922px) {
-  html {
-    font-size: 100%;
-    width: 100%;
-  }
-}
+
