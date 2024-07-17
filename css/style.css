@@ -147,13 +147,15 @@ body {
     display: inline-block;
   }
 
+
   .navbar .navbar-nav {
+     display: block;
     position: absolute;
     top: 100%;
     right: -100%;
     background-color: rgb(118, 118, 118);
-    width: 30rem;
-    height: 100vh;
+    width: 20rem;
+    height: 50vh;
     transition: 0.3s;
   }
 
