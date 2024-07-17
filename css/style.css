@@ -85,7 +85,7 @@ body {
 }
 
 /* Laptop */
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) and (min-width: 1200px)  {
   .navbar .navbar-extra {
     display: none;
   }
@@ -139,7 +139,7 @@ body {
 @media screen and (max-width: 576px) {
   html {
     display: inline-block;
-    width: 160%;
+    width: 100%;
   }
   
 
@@ -189,11 +189,16 @@ body {
     margin-top: 0;
   }
 
-  .pendidikanText {
-  font-size: 0.5em;
-  margin-top: 2rem;
-  line-height: 1.8;
-}
+  .bagianBiodata {
+    flex-direction: column; /* Ubah menjadi tata letak kolom untuk tampilan mobile */
+    width: 100%;
+  }
+
+  .biodata,
+  .pendidikan {
+    width: 100%; /* Lebar penuh untuk setiap bagian */
+    margin-bottom: 2rem; /* Jarak antara bagian-bagian */
+  }
 }
 
 /* CSS untuk animasi teks masuk */
