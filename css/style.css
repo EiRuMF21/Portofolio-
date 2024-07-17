@@ -137,8 +137,9 @@ body {
 }
 /* mobile */
 @media screen and (max-width: 576px) {
-  .navbar .navbar-extra {
+  html {
     display: inline-block;
+    width: 160%;
   }
   
 
