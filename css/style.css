@@ -1,370 +1,363 @@
-@media (max-width: 1440px) {
-  html {
-    font-size: 80%;
+:root {
+  --primary: rgb(8, 255, 24);
+  --bg: rgb(65, 65, 65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg);
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgb(53, 53, 53);
+  border-bottom: 3px solid rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav {
+  display: flex;
+}
+
+.navbar .navbar-nav a {
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0 1.2rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: white;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#main-menu {
+  display: none;
+}
+
+/* INDEX */
+/* Halaman Awal */
+
+/* Media Queries */
+
+/* Laptop */
+@media screen and (max-width: 1300px) {
+  .navbar .navbar-extra {
+    display: none;
+  }
+
+  #main-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgb(118, 118, 118);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.3);
+  }
+
+  .profileImages {
+    width: 30%;
+  }
+
+  .profileText {
+    font-size: 215%;
+    margin-left: 2rem;
+    margin-top: 0;
   }
 }
 
-  /* Tablet */
-  @media (max-width: 768px) {
-    html {
-      font-size: 62.5%;
-    }
+/* Mobile Phone */
+
+/* CSS untuk animasi teks masuk */
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-    @media (max-width: 320px) {
-      html {
-        font-size: 60%;
-      }
-    }
-      :root {
-        --primary: rgb(8, 255, 24);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        --bg: rgb(65, 65, 65);
-      }
+@keyframes textFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        outline: none;
-        border: none;
-        text-decoration: none;
-      }
+.text-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background-color: var(--bg);
-        color: white;
-        /* min-height: 2000px; */
-      }
+.text-enter-active {
+  animation: textFadeIn 0.5s ease-out forwards;
+}
 
-      /* Navbar */
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.4rem 7%;
-        background-color: rgb(53, 53, 53);
-        border-bottom: 3px solid rgb(255, 255, 255);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 9999;
-      }
+.text-exit {
+  animation: textFadeOut 0.5s ease-out forwards;
+}
 
-      .navbar .navbar-logo {
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: rgb(255, 255, 255);
-      }
+/* PROFILE */
+.rounded-circle {
+  border: 4px rgb(255, 255, 255);
+  border-radius: 50%;
+}
 
-      .navbar .navbar-logo span {
-        color: var(--primary);
-      }
+.profile {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+}
 
-      .navbar .navbar-nav {
-        display: flex;
-      }
+@keyframes fadeInProfile {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      .navbar .navbar-nav a {
-        color: white;
-        display: inline-block;
-        font-size: 1rem;
-        margin: 0 1.2rem;
-      }
+@keyframes fadeOutProfile {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
 
-      .navbar .navbar-nav a:hover {
-        color: var(--primary);
-      }
+.profileImages {
+  width: 300px;
+  margin-left: 2rem;
+}
 
-      .navbar .navbar-nav a::after {
-        content: "";
-        display: block;
-        padding-bottom: 0.5rem;
-        border-bottom: 0.1rem solid var(--primary);
-        transform: scaleX(0);
-        transition: 0.2s linear;
-      }
+.profileText {
+  padding: 1.4rem 3%;
+  max-width: 60rem;
+  font-size: 2em;
+  text-shadow: 1px 1px 3px (1, 1, 3, 0.5);
+  line-height: 1.2;
+}
 
-      .navbar .navbar-nav a:hover::after {
-        transform: scaleX(0.5);
-      }
+.profileText h5 {
+  font-weight: 500;
+}
 
-      .navbar .navbar-extra a {
-        color: white;
-        margin: 0 0.5rem;
-      }
+/* BIODATA */
+.bagianBiodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
 
-      .navbar .navbar-extra a:hover {
-        color: var(--primary);
-      }
+.indexBiodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 2rem;
+  background-color: rgb(238, 238, 238);
+  color: black;
+  height: 60vh;
+}
 
-      #main-menu {
-        display: none;
-      }
+.biodata,
+.pendidikan {
+  text-align: center;
+  flex: 1;
+  margin: 0 1rem;
+}
 
-      /* INDEX */
-      /* Halaman Awal */
+.biodata {
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
-      /* Media Queris */
+.biodataText {
+  font-size: 0.8em;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
 
-      /* Laptop */
+.pendidikan {
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
-      .profileImages {
-        width: 30%;
-      }
+.pendidikanText {
+  font-size: 0.8em;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
 
-      .profileText {
-        font-size: 215%;
-        margin-left: 2rem;
-        margin-top: 0;
-      }
+/* ABOUT ME */
 
-      #main-menu {
-        display: inline-block;
-      }
+.bagianAboutme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
 
-      .navbar .navbar-nav {
-        position: absolute;
-        top: 100%;
-        right: -100%;
-        background-color: rgb(118, 118, 118);
-        width: 30rem;
-        height: 100vh;
-        transition: 0.3s;
-      }
+.indexAboutme {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: auto;
+  padding: 3rem;
+  background-color: var(--bg);
+  height: 60vh;
+}
 
-      .navbar .navbar-nav.active {
-        right: 0;
-      }
+.indexAboutme h2 {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
 
-      .navbar .navbar-nav a {
-        color: var(--bg);
-        display: block;
-        margin: 1.5rem;
-        padding: 0.5rem;
-        font-size: 2rem;
-      }
+.aboutmeText {
+  font-size: 1em;
+  line-height: 1.8;
+  max-width: 800px;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+}
 
-      .navbar .navbar-nav a::after {
-        transform-origin: 0 0;
-      }
+.aboutme {
+  text-align: left;
+  margin: 0 1rem;
+}
 
-      .navbar .navbar-nav a:hover::after {
-        transform: scaleX(0.3);
-      } 
+/* SOSMED */
 
-    /* Mobile Phone */
+.bagianSosmed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
 
-    /* CSS untuk animasi teks masuk */
-    @keyframes textFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.indexSosmed {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: auto;
+  padding: 2rem;
+  color: black;
+  background-color: rgb(243, 242, 242);
+  height: 40vh;
+}
 
-    @keyframes textFadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
+.sosmed h1 {
+  font-size: 2em;
+}
 
-    .text-enter {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+.sosmedText {
+  font-size: 1.2em;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
 
-    .text-enter-active {
-      animation: textFadeIn 0.5s ease-out forwards;
-    }
+.sosmed {
+  text-align: left;
+  margin: 0 1rem;
+}
 
-    .text-exit {
-      animation: textFadeOut 0.5s ease-out forwards;
-    }
-    /* PROFILE */
-    .rounded-circle {
-      border: 4px rgb(255, 255, 255);
-      border-radius: 50%;
-    }
-
-    .profile {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      opacity: 0;
-    }
-
-    @keyframes fadeInProfile {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeOutProfile {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
-    .profileImages {
-      width: 300px;
-      margin-left: 2rem;
-    }
-
-    .profileText {
-      padding: 1.4rem 3%;
-      max-width: 60rem;
-      font-size: 2em;
-      text-shadow: 1px 1px 3px (1, 1, 3, 0.5);
-      line-height: 1.2;
-    }
-
-    .profileText h5 {
-      font-weight: 500;
-    }
-
-    /* BIODATA */
-    .bagianBiodata {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 2rem;
-    }
-
-    .indexBiodata {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-      padding: 2rem;
-      background-color: rgb(238, 238, 238);
-      color: black;
-      height: 60vh;
-    }
-
-    .biodata,
-    .pendidikan {
-      text-align: center;
-      flex: 1;
-      margin: 0 1rem;
-    }
-
-    .biodata {
-      font-size: 1.5em;
-      margin-top: 0;
-    }
-
-    .biodataText {
-      font-size: 0.8em;
-      margin-top: 2rem;
-      line-height: 1.8;
-    }
-
-    .pendidikan {
-      font-size: 1.5em;
-      margin-top: 0;
-    }
-
-    .pendidikanText {
-      font-size: 0.8em;
-      margin-top: 2rem;
-      line-height: 1.8;
-    }
-
-    /* ABOUT ME */
-
-    .bagianAboutme {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 2rem;
-    }
-
-    .indexAboutme {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      height: auto;
-      padding: 3rem;
-      background-color: var(--bg);
-      height: 60vh;
-    }
-
-    .indexAboutme h2 {
-      margin-bottom: 0.5rem;
-      text-align: left;
-    }
-
-    .aboutmeText {
-      font-size: 1em;
-      line-height: 1.8;
-      max-width: 800px;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: left;
-    }
-
-    .aboutme {
-      text-align: left;
-      margin: 0 1rem;
-    }
-
-    /* SOSMED */
-
-    .bagianSosmed {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 2rem;
-    }
-
-    .indexSosmed {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      height: auto;
-      padding: 2rem;
-      color: black;
-      background-color: rgb(243, 242, 242);
-      height: 40vh;
-    }
-
-    .sosmed h1 {
-      font-size: 2em;
-    }
-
-    .sosmedText {
-      font-size: 1.2em;
-      margin-top: 2rem;
-      line-height: 1.8;
-    }
-
-    .sosmed {
-      text-align: left;
-      margin: 0 1rem;
-    }
-  
+@media screen and (max-width: 922px) {
+  html {
+    font-size: 100%;
+    width: 200%;
+  }
+}
